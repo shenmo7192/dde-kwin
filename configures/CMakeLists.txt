@@ -4,7 +4,7 @@ install(
     FILES
     #kglobalshortcutsrc
     kwinrc
-    deepin-kwinrulesrc
+    #deepin-kwinrulesrc
     klaunchrc
     #kdeglobals
     DESTINATION
