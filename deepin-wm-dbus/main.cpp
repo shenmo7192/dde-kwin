@@ -3,6 +3,7 @@
 
 #include <QGuiApplication>
 #include <DLog>
+//#include <dtk5/DCore/DLog>
 
 #define Service "com.deepin.wm"
 #define Path "/com/deepin/wm"
