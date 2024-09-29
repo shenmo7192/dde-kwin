@@ -100,9 +100,9 @@ if (USE_SCRIPTS)
   add_subdirectory(scripts)
 endif()
 
-#if (USE_DEEPIN_WM_DBUS)
-#  add_subdirectory(deepin-wm-dbus)
-#endif()
+if (USE_DEEPIN_WM_DBUS)
+  add_subdirectory(deepin-wm-dbus)
+endif()
 
 if (BUILD_TESTING)
     add_subdirectory(tests)
