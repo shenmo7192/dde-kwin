@@ -39,7 +39,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(QGSettings, _gsettings_dde_zone, ("com.deepin.dde.zone
 #define DeepinWMGeneralGroupName "General"
 #define DeepinWMWorkspaceBackgroundGroupName "WorkspaceBackground"
 
-#define KWinConfigName "kwinrc"
+#define KWinConfigName "deepin-kwinrc"
 #define KWinCloseWindowGroupName "Script-closewindowaction"
 #define KWinRunCommandGroupName "Script-runcommandaction"
 
