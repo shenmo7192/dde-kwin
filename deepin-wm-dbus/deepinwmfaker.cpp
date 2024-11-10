@@ -35,7 +35,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(QGSettings, _gsettings_dde_zone, ("com.deepin.dde.zone
 #define DBUS_APPEARANCE_OBJ "/com/deepin/daemon/Appearance"
 #define DBUS_APPEARANCE_INTF "com.deepin.daemon.Appearance"
 
-#define DeepinWMConfigName "deepinwmrc"
+#define DeepinWMConfigName "gxdewmrc"
 #define DeepinWMGeneralGroupName "General"
 #define DeepinWMWorkspaceBackgroundGroupName "WorkspaceBackground"
 
@@ -309,6 +309,9 @@ DeepinWMFaker::DeepinWMFaker(QObject *parent)
     , m_globalAccel(KGlobalAccel::self())
     , m_previewWinMiniPair(QPair<uint, bool>(-1, false))
 {
+    if (QFile::exists(QDir::homePath() + "/.config/" + DeepinWMGeneralGroupName)) {
+        QFile::remove(QDir::homePath() + "/.config/" + DeepinWMGeneralGroupName);
+    }
     m_isPlatformX11 = isX11Platform();
 #ifndef DISABLE_DEEPIN_WM
     m_currentDesktop = m_kwinConfig->group("Workspace").readEntry<int>("CurrentDesktop", 1);
@@ -1201,10 +1204,12 @@ QString DeepinWMFaker::transToDaemonAccelStr(const QString &accelStr) const
 QString DeepinWMFaker::getWorkspaceBackground(const int index) const
 {
     return m_deepinWMWorkspaceBackgroundGroup->readEntry(QString::number(index));
+
 }
 
 void DeepinWMFaker::setWorkspaceBackground(const int index, const QString &uri)
 {
+    qDebug() << uri;
     m_deepinWMWorkspaceBackgroundGroup->writeEntry(QString::number(index), uri);
 
     Q_EMIT WorkspaceBackgroundChanged(index, uri);

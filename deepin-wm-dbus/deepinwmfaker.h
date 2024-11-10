@@ -4,6 +4,7 @@
 #include <QAction>
 #include <QObject>
 #include <QDBusContext>
+#include <QDir>
 
 class KWindowSystem;
 class KConfig;
