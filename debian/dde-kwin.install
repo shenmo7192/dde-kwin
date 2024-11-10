@@ -1,10 +1,10 @@
 #etc/xdg/kdeglobals
 #etc/xdg/kglobalshortcutsrc
-#etc/xdg/klaunchrc
-#etc/xdg/kwinrc
+etc/xdg/klaunchrc
+etc/xdg/kwinrc
 #etc/xdg/deepin-kwinrulesrc
 usr/bin/deepin-wm-dbus
-#usr/bin/kwin_no_scale
+usr/bin/kwin_no_scale
 #usr/lib/*/*.so.*
 #usr/lib/*/qt5
 usr/share/kwin/scripts
