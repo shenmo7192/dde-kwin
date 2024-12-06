@@ -1,6 +1,8 @@
+cmake_minimum_required(VERSION 3.30)
 project(DDEKWin)
 
 set(PROJECT_NAME "dde-kwin")
+
 
 if (NOT PROJECT_VERSION)
     set(PROJECT_VERSION "0.0.1")
@@ -40,15 +42,15 @@ endif()
 find_package(Qt5Core)
 get_target_property(QT_QMAKE_EXECUTABLE ${Qt5Core_QMAKE_EXECUTABLE} IMPORTED_LOCATION)
 
-macro(query_qmake args output)
-    exec_program(${QT_QMAKE_EXECUTABLE} ARGS -query ${args} OUTPUT_VARIABLE ${output} RETURN_VALUE exitCode)
+#macro(query_qmake args output)
+#    execute_process(${QT_QMAKE_EXECUTABLE} ARGS -query ${args} OUTPUT_VARIABLE ${output} RETURN_VALUE exitCode)
 
-    if(NOT ${exitCode} EQUAL 0)
-        message(FATAL_ERROR "exec ${QT_QMAKE_EXECUTABLE} failed, with args: ${args}, error message: ${output}")
-    endif()
-endmacro()
+#    if(NOT ${exitCode} EQUAL 0)
+#        message(FATAL_ERROR "exec ${QT_QMAKE_EXECUTABLE} failed, with args: ${args}, error message: ${output}")
+#    endif()
+#endmacro()
 
-query_qmake("QT_INSTALL_PLUGINS" QT_INSTALL_PLUGINS)
+#query_qmake("QT_INSTALL_PLUGINS" QT_INSTALL_PLUGINS)
 
 set(PLUGIN_INSTALL_PATH ${QT_INSTALL_PLUGINS}/platforms)
 # Find includes in corresponding build directories
